@@ -10,7 +10,9 @@ import Footer from './components/Footer';
 
 function App() {
   return (
-    <div className="min-h-screen bg-modern-background text-modern-primary">
+    <div>
+      <div className="bg-tp-bg text-tp-text min-h-screen">
+        
       <Header />
       <Hero />
       <About />
@@ -20,6 +22,7 @@ function App() {
       <Blog />
       <Contact />
       <Footer />
+      </div>
     </div>
   );
 }

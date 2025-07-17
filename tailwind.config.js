@@ -4,13 +4,13 @@ export default {
   theme: {
     extend: {
       colors: {
-        modern: {
-          primary: '#6A9FB5',       // Cool Blue
-          secondary: '#D0D6DB',     // Ice Gray
-          background: '#F5F7FA',    // Soft White
-        },
+         'tp-bg': '#1E1A16',       // Background (Earthy Brown)
+        'tp-card': '#2C241F',     // Section/Card Background
+        'tp-primary': '#D97706',  // Main button, link
+        'tp-accent': '#F59E0B',   // Hover, highlights
+        'tp-text': '#F3E8D4',   
       },
     },
   },
   plugins: [],
-};
+}
