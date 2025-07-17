@@ -4,10 +4,11 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#7E9172',      // Sage Green
-        secondary: '#DDCDB6',    // Beige
-        background: '#E5DFD6',   // Ivory Shade
-        accent: '#4E5D4E',       // Olive
+        modern: {
+          primary: '#6A9FB5',       // Cool Blue
+          secondary: '#D0D6DB',     // Ice Gray
+          background: '#F5F7FA',    // Soft White
+        },
       },
     },
   },
