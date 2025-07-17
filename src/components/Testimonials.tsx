@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Star, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
+import { useState, useEffect } from 'react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -52,7 +52,7 @@ const Testimonials = () => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
     return () => clearInterval(interval);
-  }, []);
+  }, [testimonials.length]);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -189,15 +189,17 @@ const Testimonials = () => {
               >
                 Get Your Quote
               </button>
-              <a
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors duration-200"
-              >
-                <MessageCircle size={20} />
-                <span>Start Conversation</span>
-              </a>
+             {/*
+<a
+  href="https://wa.me/1234567890"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors duration-200"
+>
+  <MessageCircle size={20} />
+  <span>Start Conversation</span>
+</a>
+*/}
             </div>
           </div>
         </div>
