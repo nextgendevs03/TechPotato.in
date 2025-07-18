@@ -22,77 +22,72 @@ const Header = () => {
   };
 
   return (
-    <header className={`fixed w-full z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
-    }`}>
+    <header
+      className={`fixed w-full z-50 transition-all duration-300 ${
+        isScrolled
+          ? 'bg-tp-light/95 backdrop-blur-sm shadow-md shadow-tp-muted'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center space-x-2">
-            <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
+            <div className="w-10 h-10 bg-tp-btn rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">TP</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">Tech Potato Softwares</span>
+            <span className="text-xl font-bold text-tp-text">
+              Tech Potato Softwares
+            </span>
           </div>
 
           <nav className="hidden md:flex space-x-8">
-            {['home', 'about', 'services', 'portfolio', 'testimonials', 'blog', 'contact'].map((item) => (
+            {[
+              'home',
+              'about',
+              'services',
+              'portfolio',
+              'testimonials',
+              'blog',
+              'contact',
+            ].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 capitalize font-medium"
+                className="text-tp-text hover:text-tp-accent transition-colors duration-200 capitalize font-medium"
               >
                 {item}
               </button>
             ))}
           </nav>
-          
-          <div className="hidden md:flex items-center space-x-4">
-          
-            {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors duration-200"
->
-  <MessageCircle size={16} />
-  <span>WhatsApp</span>
-</a>
-*/}
-          
-          </div>
-         
-          <button
-            className="md:hidden"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-          >
+
+          <div className="hidden md:flex items-center space-x-4">{/* WhatsApp button (optional) */}</div>
+
+          <button className="md:hidden" onClick={() => setIsMenuOpen(!isMenuOpen)}>
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
         </div>
 
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 w-full bg-white shadow-lg rounded-b-lg">
+          <div className="md:hidden absolute top-full left-0 w-full bg-tp-light shadow-md rounded-b-lg">
             <nav className="flex flex-col space-y-4 p-4">
-              {['home', 'about', 'services', 'portfolio', 'testimonials', 'blog', 'contact'].map((item) => (
+              {[
+                'home',
+                'about',
+                'services',
+                'portfolio',
+                'testimonials',
+                'blog',
+                'contact',
+              ].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
-                  className="text-gray-700 hover:text-blue-600 transition-colors duration-200 capitalize font-medium text-left"
+                  className="text-tp-text hover:text-tp-accent transition-colors duration-200 capitalize font-medium text-left"
                 >
                   {item}
                 </button>
               ))}
-             {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors duration-200 w-fit"
->
-  <MessageCircle size={16} />
-  <span>WhatsApp</span>
-</a>
-*/}
+              {/* WhatsApp button (optional) */}
             </nav>
           </div>
         )}

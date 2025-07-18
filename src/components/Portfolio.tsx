@@ -39,76 +39,57 @@ const Portfolio = () => {
     }
   ];
 
-  const nextProject = () => {
-    setCurrentProject((prev) => (prev + 1) % projects.length);
-  };
-
-  const prevProject = () => {
-    setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
-  };
+  const nextProject = () => setCurrentProject((prev) => (prev + 1) % projects.length);
+  const prevProject = () => setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
 
   return (
-    <section id="portfolio" className="py-20 bg-white">
+    <section id="portfolio" className="py-20 bg-[#FAF3E0]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Portfolio</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#3B2F2F] mb-6">Our Portfolio</h2>
+          <p className="text-xl text-[#3B2F2F] max-w-3xl mx-auto">
             Explore our successful projects and see how we've helped businesses achieve their digital transformation goals.
           </p>
         </div>
 
-        {/* Featured Project Carousel */}
+        {/* Featured Carousel */}
         <div className="relative mb-16">
-          <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-2xl p-8 lg:p-12">
+          <div className="bg-[#FFF7ED] rounded-2xl p-8 lg:p-12">
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <div className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
+                <div className="bg-[#D2691E] text-white px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
                   {projects[currentProject].category}
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">{projects[currentProject].title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{projects[currentProject].description}</p>
-                
+                <h3 className="text-3xl font-bold text-[#3B2F2F] mb-4">{projects[currentProject].title}</h3>
+                <p className="text-[#3B2F2F] mb-6 leading-relaxed">{projects[currentProject].description}</p>
+
                 <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">Technologies Used:</h4>
+                  <h4 className="font-semibold text-[#3B2F2F] mb-3">Technologies Used:</h4>
                   <div className="flex flex-wrap gap-2">
                     {projects[currentProject].technologies.map((tech, index) => (
-                      <span key={index} className="bg-white text-gray-700 px-3 py-1 rounded-full text-sm">
-                        {tech}
-                      </span>
+                      <span key={index} className="bg-white text-[#3B2F2F] px-3 py-1 rounded-full text-sm">{tech}</span>
                     ))}
                   </div>
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Results:</h4>
+                  <h4 className="font-semibold text-[#3B2F2F] mb-3">Key Results:</h4>
                   <ul className="space-y-2">
                     {projects[currentProject].results.map((result, index) => (
-                      <li key={index} className="text-gray-600 flex items-center">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
+                      <li key={index} className="text-[#3B2F2F] flex items-center">
+                        <div className="w-2 h-2 bg-green-600 rounded-full mr-3"></div>
                         {result}
                       </li>
                     ))}
                   </ul>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200">
-                    <ExternalLink size={16} />
-                    <span>View Project</span>
-                  </button>
-                  {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-lg transition-colors duration-200"
->
-  <MessageCircle size={16} />
-</a>
-*/}
-                </div>
+                <button className="bg-[#A0522D] hover:bg-[#8B4513] text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200">
+                  <ExternalLink size={16} />
+                  <span>View Project</span>
+                </button>
               </div>
-              
+
               <div className="relative">
                 <img 
                   src={projects[currentProject].image} 
@@ -120,38 +101,29 @@ const Portfolio = () => {
             </div>
           </div>
 
-          {/* Navigation Buttons */}
-          <button 
-            onClick={prevProject}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-700 p-3 rounded-full shadow-lg transition-colors duration-200"
-          >
+          {/* Navigation */}
+          <button onClick={prevProject} className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white text-[#3B2F2F] p-3 rounded-full shadow-lg hover:bg-[#FFF7ED] transition-colors duration-200">
             <ChevronLeft size={24} />
           </button>
-          <button 
-            onClick={nextProject}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-700 p-3 rounded-full shadow-lg transition-colors duration-200"
-          >
+          <button onClick={nextProject} className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white text-[#3B2F2F] p-3 rounded-full shadow-lg hover:bg-[#FFF7ED] transition-colors duration-200">
             <ChevronRight size={24} />
           </button>
 
-          {/* Project Indicators */}
           <div className="flex justify-center space-x-2 mt-6">
             {projects.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentProject(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                  index === currentProject ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
+                className={`w-3 h-3 rounded-full transition-colors duration-200 ${index === currentProject ? 'bg-[#A0522D]' : 'bg-[#d3c4ad]'}`}
               />
             ))}
           </div>
         </div>
 
-        {/* Project Grid */}
+        {/* Grid View */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+            <div key={index} className="bg-[#FFF7ED] rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
               <div className="relative overflow-hidden">
                 <img 
                   src={project.image} 
@@ -169,43 +141,30 @@ const Portfolio = () => {
                   </div>
                 </div>
               </div>
-              
               <div className="p-6">
-                <div className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold inline-block mb-3">
+                <div className="bg-[#D2691E] text-white px-3 py-1 rounded-full text-xs font-semibold inline-block mb-3">
                   {project.category}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{project.description}</p>
+                <h3 className="text-xl font-bold text-[#3B2F2F] mb-3">{project.title}</h3>
+                <p className="text-[#3B2F2F] text-sm leading-relaxed">{project.description}</p>
               </div>
             </div>
           ))}
         </div>
 
+        {/* CTA */}
         <div className="text-center mt-16">
-          <div className="bg-gray-50 p-8 rounded-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Have a Project in Mind?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Let's discuss your requirements and create something amazing together. Our team is ready to bring your vision to life.
+          <div className="bg-[#FFF7ED] p-8 rounded-2xl">
+            <h3 className="text-2xl font-bold text-[#3B2F2F] mb-4">Have a Project in Mind?</h3>
+            <p className="text-[#3B2F2F] mb-6 max-w-2xl mx-auto">
+              Let's discuss your requirements and create something amazing together.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
-              >
-                Start Your Project
-              </button>
-              {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors duration-200"
->
-  <MessageCircle size={20} />
-  <span>Quick Chat</span>
-</a>
-*/}
-            </div>
+            <button
+              onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              className="bg-[#A0522D] hover:bg-[#8B4513] text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
+            >
+              Start Your Project
+            </button>
           </div>
         </div>
       </div>
