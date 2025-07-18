@@ -1,9 +1,9 @@
-import React from 'react';
-import { ArrowRight, Play, MessageCircle } from 'lucide-react';
+
+import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-teal-800 relative overflow-hidden">
+    <section id="home" className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#b9c3e0ff' }}>
       <div className="absolute inset-0 bg-black/20"></div>
       
       {/* Animated background elements */}
@@ -59,14 +59,16 @@ const Hero = () => {
       </div>
 
       <div className="absolute bottom-8 right-8">
-        <a
-          href="https://wa.me/1234567890"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center"
-        >
-          <MessageCircle size={24} />
-        </a>
+        {/*
+<a
+  href="https://wa.me/1234567890"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 transform hover:scale-110 flex items-center justify-center"
+>
+  <MessageCircle size={24} />
+</a>
+*/}
       </div>
     </section>
   );

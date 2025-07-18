@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Mail, Phone, MapPin, Send, MessageCircle, Clock, Globe } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Clock,} from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -42,7 +42,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gray-50">
+    <section id="contact" className="py-20" style={{ backgroundColor: '#b9c3e0ff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Get In Touch</h2>
@@ -105,14 +105,16 @@ const Contact = () => {
               <div className="mt-8 pt-8 border-t border-white/20">
                 <h4 className="font-semibold mb-4">Quick Connect</h4>
                 <div className="flex space-x-4">
-                  <a
-                    href="https://wa.me/1234567890"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-green-500 hover:bg-green-600 p-3 rounded-lg transition-colors duration-200"
-                  >
-                    <MessageCircle size={20} />
-                  </a>
+                 {/* 
+<a
+  href="https://wa.me/1234567890"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-green-500 hover:bg-green-600 p-3 rounded-lg transition-colors duration-200"
+>
+  <MessageCircle size={20} />
+</a> 
+*/}
                   <a
                     href="mailto:hello@techpotato.com"
                     className="bg-white/20 hover:bg-white/30 p-3 rounded-lg transition-colors duration-200"
@@ -260,7 +262,6 @@ const Contact = () => {
                     placeholder="Tell us about your project requirements, goals, and any specific challenges you're facing..."
                   />
                 </div>
-
                 <div className="flex items-center justify-between">
                   <button
                     type="submit"
@@ -280,22 +281,24 @@ const Contact = () => {
                     )}
                   </button>
 
-                  <a
-                    href="https://wa.me/1234567890"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200"
-                  >
-                    <MessageCircle size={20} />
-                    <span>WhatsApp</span>
-                  </a>
+                 
+               {/* 
+<a
+  href="https://wa.me/1234567890"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200"
+>
+  <MessageCircle size={20} />
+  <span>WhatsApp</span>
+</a>
+*/}
                 </div>
               </form>
             </div>
           </div>
         </div>
-
-        {/* Map Section */}
+        
         <div className="mt-16">
           <div className="bg-white rounded-2xl p-8 shadow-lg">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Visit Our Office</h3>
