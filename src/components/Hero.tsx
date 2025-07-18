@@ -3,7 +3,7 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-teal-800 relative overflow-hidden">
+    <section id="home" className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#b9c3e0ff' }}>
       <div className="absolute inset-0 bg-black/20"></div>
       
       {/* Animated background elements */}

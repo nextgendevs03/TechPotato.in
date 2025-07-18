@@ -63,11 +63,11 @@ const Testimonials = () => {
   };
 
   return (
-    <section id="testimonials" className="py-20 bg-gradient-to-br from-blue-50 to-teal-50">
+    <section id="testimonials" className="py-20 bg-[#F0F4F8]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">What Our Clients Say</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <h2 className="text-4xl md:text-5xl font-bold text-[#1E293B] mb-6">What Our Clients Say</h2>
+          <p className="text-xl text-[#64748B] max-w-3xl mx-auto">
             Don't just take our word for it. Here's what our satisfied clients have to say about working with us.
           </p>
         </div>
@@ -81,11 +81,11 @@ const Testimonials = () => {
                   <Star key={i} className="text-yellow-400 fill-current" size={24} />
                 ))}
               </div>
-              <blockquote className="text-xl lg:text-2xl text-gray-700 leading-relaxed mb-8 italic">
+              <blockquote className="text-xl lg:text-2xl text-[#334155] leading-relaxed mb-8 italic">
                 "{testimonials[currentTestimonial].text}"
               </blockquote>
             </div>
-            
+
             <div className="flex items-center justify-center space-x-4">
               <img 
                 src={testimonials[currentTestimonial].image} 
@@ -93,9 +93,9 @@ const Testimonials = () => {
                 className="w-16 h-16 rounded-full object-cover"
               />
               <div className="text-center">
-                <div className="font-bold text-gray-900 text-lg">{testimonials[currentTestimonial].name}</div>
-                <div className="text-gray-600">{testimonials[currentTestimonial].position}</div>
-                <div className="text-blue-600 text-sm font-semibold">{testimonials[currentTestimonial].company}</div>
+                <div className="font-bold text-[#1E293B] text-lg">{testimonials[currentTestimonial].name}</div>
+                <div className="text-[#64748B]">{testimonials[currentTestimonial].position}</div>
+                <div className="text-[#3B82F6] text-sm font-semibold">{testimonials[currentTestimonial].company}</div>
               </div>
             </div>
           </div>
@@ -103,32 +103,32 @@ const Testimonials = () => {
           {/* Navigation Buttons */}
           <button 
             onClick={prevTestimonial}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-700 p-3 rounded-full shadow-lg transition-colors duration-200"
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#E2E8F0] text-[#1E293B] p-3 rounded-full shadow-lg transition-colors duration-200"
           >
             <ChevronLeft size={24} />
           </button>
           <button 
             onClick={nextTestimonial}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-700 p-3 rounded-full shadow-lg transition-colors duration-200"
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-[#E2E8F0] text-[#1E293B] p-3 rounded-full shadow-lg transition-colors duration-200"
           >
             <ChevronRight size={24} />
           </button>
 
-          {/* Testimonial Indicators */}
+          {/* Dots */}
           <div className="flex justify-center space-x-2 mt-6">
             {testimonials.map((_, index) => (
               <button
                 key={index}
                 onClick={() => setCurrentTestimonial(index)}
                 className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                  index === currentTestimonial ? 'bg-blue-600' : 'bg-gray-300'
+                  index === currentTestimonial ? 'bg-[#3B82F6]' : 'bg-gray-300'
                 }`}
               />
             ))}
           </div>
         </div>
 
-        {/* Testimonial Grid */}
+        {/* Grid Section */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {testimonials.slice(0, 3).map((testimonial, index) => (
             <div key={index} className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-shadow duration-300">
@@ -137,7 +137,7 @@ const Testimonials = () => {
                   <Star key={i} className="text-yellow-400 fill-current" size={16} />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6 leading-relaxed">"{testimonial.text.slice(0, 150)}..."</p>
+              <p className="text-[#475569] mb-6 leading-relaxed">"{testimonial.text.slice(0, 150)}..."</p>
               <div className="flex items-center space-x-3">
                 <img 
                   src={testimonial.image} 
@@ -145,8 +145,8 @@ const Testimonials = () => {
                   className="w-12 h-12 rounded-full object-cover"
                 />
                 <div>
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-gray-500 text-sm">{testimonial.position}</div>
+                  <div className="font-semibold text-[#1E293B]">{testimonial.name}</div>
+                  <div className="text-[#64748B] text-sm">{testimonial.position}</div>
                 </div>
               </div>
             </div>
@@ -157,27 +157,27 @@ const Testimonials = () => {
         <div className="bg-white rounded-2xl p-8 shadow-lg">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">98%</div>
-              <div className="text-gray-600">Client Satisfaction</div>
+              <div className="text-3xl font-bold text-[#3B82F6] mb-2">98%</div>
+              <div className="text-[#475569]">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-teal-600 mb-2">200+</div>
-              <div className="text-gray-600">Projects Completed</div>
+              <div className="text-3xl font-bold text-[#06B6D4] mb-2">200+</div>
+              <div className="text-[#475569]">Projects Completed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
-              <div className="text-gray-600">Happy Clients</div>
+              <div className="text-3xl font-bold text-[#F59E0B] mb-2">50+</div>
+              <div className="text-[#475569]">Happy Clients</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">24/7</div>
-              <div className="text-gray-600">Support Available</div>
+              <div className="text-3xl font-bold text-[#10B981] mb-2">24/7</div>
+              <div className="text-[#475569]">Support Available</div>
             </div>
           </div>
         </div>
 
         {/* CTA Section */}
         <div className="text-center mt-16">
-          <div className="bg-gradient-to-r from-blue-600 to-teal-600 text-white p-8 rounded-2xl">
+          <div className="bg-gradient-to-r from-[#3B82F6] to-[#06B6D4] text-white p-8 rounded-2xl">
             <h3 className="text-2xl font-bold mb-4">Ready to Join Our Success Stories?</h3>
             <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
               Let's discuss your project and see how we can help you achieve similar results for your business.
@@ -185,21 +185,10 @@ const Testimonials = () => {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <button 
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
+                className="bg-white text-[#3B82F6] hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
               >
                 Get Your Quote
               </button>
-             {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors duration-200"
->
-  <MessageCircle size={20} />
-  <span>Start Conversation</span>
-</a>
-*/}
             </div>
           </div>
         </div>

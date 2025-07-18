@@ -62,7 +62,7 @@ const Blog = () => {
   const categories = ['All', 'AI & Technology', 'Cloud Computing', 'Cybersecurity', 'Mobile Development', 'Data Science', 'Web Development'];
 
   return (
-    <section id="blog" className="py-20 bg-white">
+    <section id="blog" className="py-20" style={{ backgroundColor: '#b9c3e0ff' }}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Latest Insights</h2>

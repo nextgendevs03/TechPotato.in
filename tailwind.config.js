@@ -5,9 +5,13 @@ export default {
     extend: {
       colors: {
         modern: {
-          primary: '#6A9FB5',       // Cool Blue
-          secondary: '#D0D6DB',     // Ice Gray
-          background: '#F5F7FA',    // Soft White
+         'tp-bg': '#F0F4F8',       // Light bluish-gray
+        'tp-text': '#1F2937',     // Cool dark blue-gray
+        'tp-accent': '#3B82F6',   // Vivid blue (accent)
+        'tp-muted': '#9CA3AF',    // Muted gray
+        'tp-light': '#E5EFFF',    // Light cool blue background
+        'tp-btn': '#2563EB',      // Primary button blue
+        'tp-btn-hover': '#1D4ED8' // Hover deep blue 
         },
       },
     },
