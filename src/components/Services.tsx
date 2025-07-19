@@ -77,16 +77,7 @@ const Services = () => {
                 >
                   Learn More →
                 </button>
-                {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-100 hover:bg-green-200 text-green-600 p-2 rounded-lg transition-colors duration-200"
->
-  <MessageCircle size={16} />
-</a>
-*/}
+               
               </div>
             </div>
           ))}
@@ -105,17 +96,7 @@ const Services = () => {
               >
                 Get Free Consultation
               </button>
-              {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors duration-200"
->
-  <MessageCircle size={20} />
-  <span>Chat on WhatsApp</span>
-</a>
-*/}
+             
             </div>
           </div>
         </div>

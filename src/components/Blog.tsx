@@ -114,16 +114,7 @@ const Blog = () => {
                   <span>Read More</span>
                   <ArrowRight size={16} />
                 </button>
-                {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-lg transition-colors duration-200"
->
-  <MessageCircle size={16} />
-</a>
-*/}
+       
               </div>
             </div>
             
@@ -180,16 +171,7 @@ const Blog = () => {
                     <span>Read More</span>
                     <ArrowRight size={14} />
                   </button>
-                  {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="text-green-600 hover:text-green-700 transition-colors duration-200"
->
-  <MessageCircle size={16} />
-</a>
-*/}
+                 
                 </div>
               </div>
             </article>
@@ -231,17 +213,7 @@ const Blog = () => {
               >
                 Contact Our Experts
               </button>
-             {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors duration-200"
->
-  <MessageCircle size={20} />
-  <span>Quick Discussion</span>
-</a>
-*/}
+            
             </div>
           </div>
         </div>

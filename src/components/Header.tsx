@@ -48,17 +48,7 @@ const Header = () => {
           
           <div className="hidden md:flex items-center space-x-4">
           
-            {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors duration-200"
->
-  <MessageCircle size={16} />
-  <span>WhatsApp</span>
-</a>
-*/}
+           
           
           </div>
          
@@ -82,17 +72,7 @@ const Header = () => {
                   {item}
                 </button>
               ))}
-             {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors duration-200 w-fit"
->
-  <MessageCircle size={16} />
-  <span>WhatsApp</span>
-</a>
-*/}
+          
             </nav>
           </div>
         )}

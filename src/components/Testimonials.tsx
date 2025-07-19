@@ -189,17 +189,7 @@ const Testimonials = () => {
               >
                 Get Your Quote
               </button>
-             {/*
-<a
-  href="https://wa.me/1234567890"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors duration-200"
->
-  <MessageCircle size={20} />
-  <span>Start Conversation</span>
-</a>
-*/}
+             
             </div>
           </div>
         </div>
