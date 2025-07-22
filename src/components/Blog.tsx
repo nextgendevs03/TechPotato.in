@@ -1,5 +1,5 @@
-import React from 'react';
 import { Calendar, User, ArrowRight, MessageCircle } from 'lucide-react';
+import TeamCarousel from '../components/TeamCarousel';
 
 const Blog = () => {
   const blogPosts = [
@@ -58,9 +58,8 @@ const Blog = () => {
       readTime: '6 min read'
     }
   ];
-
   const categories = ['All', 'AI & Technology', 'Cloud Computing', 'Cybersecurity', 'Mobile Development', 'Data Science', 'Web Development'];
-
+  
   return (
     <section id="blog" className="py-20 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -70,7 +69,7 @@ const Blog = () => {
             Stay updated with the latest trends, technologies, and best practices in software development and digital transformation.
           </p>
         </div>
-
+        
         {/* Category Filter */}
         <div className="flex flex-wrap justify-center gap-4 mb-12">
           {categories.map((category, index) => (
@@ -86,7 +85,7 @@ const Blog = () => {
             </button>
           ))}
         </div>
-
+        
         {/* Featured Post */}
         <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-2xl p-8 lg:p-12 mb-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -108,7 +107,6 @@ const Blog = () => {
                 </div>
                 <span>{blogPosts[0].readTime}</span>
               </div>
-
               <div className="flex items-center space-x-4">
                 <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200">
                   <span>Read More</span>
@@ -137,7 +135,7 @@ const Blog = () => {
             </div>
           </div>
         </div>
-
+        
         {/* Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {blogPosts.slice(1).map((post, index) => (
@@ -191,7 +189,7 @@ const Blog = () => {
             </article>
           ))}
         </div>
-
+        
         {/* Newsletter Signup */}
         <div className="bg-gradient-to-r from-blue-600 to-teal-600 text-white p-8 rounded-2xl text-center">
           <h3 className="text-2xl font-bold mb-4">Stay Updated with Tech Insights</h3>
@@ -212,11 +210,15 @@ const Blog = () => {
             Join 5,000+ subscribers. No spam, unsubscribe anytime.
           </p>
         </div>
-
+        
+        {/* TeamCarousel - NOW PLACED IMMEDIATELY AFTER NEWSLETTER */}
+        <TeamCarousel />
+        
         {/* CTA Section */}
         <div className="text-center mt-16">
           <div className="bg-gray-50 p-8 rounded-2xl">
             <h3 className="text-2xl font-bold text-gray-900 mb-4">Have Questions About Our Insights?</h3>
+  
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
               Our team is always happy to discuss technology trends and how they can benefit your business.
             </p>
