@@ -48,11 +48,14 @@ const Testimonials = () => {
   ];
 
   useEffect(() => {
+   if (testimonials.length === 0) return;
+
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
+
     return () => clearInterval(interval);
-  }, [testimonials.length]);
+  }, [testimonials.length]); 
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
