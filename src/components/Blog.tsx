@@ -188,30 +188,7 @@ const Blog = () => {
               </div>
             </article>
           ))}
-        </div>
-        
-        {/* Newsletter Signup */}
-        <div className="bg-gradient-to-r from-blue-600 to-teal-600 text-white p-8 rounded-2xl text-center">
-          <h3 className="text-2xl font-bold mb-4">Stay Updated with Tech Insights</h3>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Subscribe to our newsletter and get the latest articles, insights, and technology trends delivered to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50"
-            />
-            <button className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-200">
-              Subscribe
-            </button>
-          </div>
-          <p className="text-blue-200 text-sm mt-4">
-            Join 5,000+ subscribers. No spam, unsubscribe anytime.
-          </p>
-        </div>
-        
-        {/* TeamCarousel - NOW PLACED IMMEDIATELY AFTER NEWSLETTER */}
+        </div>       
         <TeamCarousel />
         
         {/* CTA Section */}
