@@ -6,7 +6,7 @@ const Hero = () => {
       id="home"
       className="min-h-screen w-full relative flex items-center justify-center overflow-hidden"
     >
-      {/* ✅ Fullscreen main image only (no blur) */}
+      {/* ✅ Fullscreen Background Image */}
       <img
         src="/hero section.jpg"
         alt="Hero background"
@@ -14,8 +14,8 @@ const Hero = () => {
         style={{ zIndex: 0 }}
       />
 
-      {/* ✅ Optional: black transparent overlay for text readability */}
-      <div className="absolute inset-0 bg-black/40" style={{ zIndex: 1 }}></div>
+      {/* ✅ Dark Overlay for Better Text Visibility */}
+      <div className="absolute inset-0 bg-black/60" style={{ zIndex: 1 }}></div>
 
       {/* ✅ Content */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 flex flex-col items-center justify-center w-full">
@@ -49,8 +49,8 @@ const Hero = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { number: '200+', label: 'Projects Completed' },
-              { number: '50+', label: 'Happy Clients' },
+              { number: '10+', label: 'Projects Completed' },
+              { number: '10+', label: 'Happy Clients' },
               { number: '5+', label: 'Years Experience' },
               { number: '24/7', label: 'Support Available' }
             ].map((stat, index) => (
