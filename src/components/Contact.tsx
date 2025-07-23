@@ -194,50 +194,7 @@ const Contact = () => {
                     />
                   </div>
                 </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                  <div>
-                    <label htmlFor="service" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Service Interest
-                    </label>
-                    <select
-                      id="service"
-                      name="service"
-                      value={formData.service}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    >
-                      <option value="">Select a service</option>
-                      <option value="custom-software">Custom Software Development</option>
-                      <option value="mobile-app">Mobile App Development</option>
-                      <option value="cloud-solutions">Cloud Solutions</option>
-                      <option value="cybersecurity">Cybersecurity Services</option>
-                      <option value="data-analytics">Data Analytics</option>
-                      <option value="digital-transformation">Digital Transformation</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label htmlFor="budget" className="block text-sm font-semibold text-gray-700 mb-2">
-                      Project Budget
-                    </label>
-                    <select
-                      id="budget"
-                      name="budget"
-                      value={formData.budget}
-                      onChange={handleInputChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors duration-200"
-                    >
-                      <option value="">Select budget range</option>
-                      <option value="under-10k">Under $10,000</option>
-                      <option value="10k-25k">$10,000 - $25,000</option>
-                      <option value="25k-50k">$25,000 - $50,000</option>
-                      <option value="50k-100k">$50,000 - $100,000</option>
-                      <option value="over-100k">Over $100,000</option>
-                    </select>
-                  </div>
-                </div>
-
+            
                 <div>
                   <label htmlFor="message" className="block text-sm font-semibold text-gray-700 mb-2">
                     Project Details *
