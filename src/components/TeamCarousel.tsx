@@ -16,24 +16,24 @@ const teamMembers = [
   {
     name: "Sandesh Uttarwar",
     role: "Tech Lead",
-    image: "/team/no-image.png",
+    image: "/Sandesh Uttarwar.jpg",
   },
   {
     name: "Paridhi Shah",
     role: "Junior Associate",
-    image: "/team/no-image.png",
+    image: "/Paridhi.png",
   },
   {
     name: "Darshana Shah",
     role: "Junior Associate",
-    image: "/team/no-image.png",
+    image: "/Darshana.png",
   },
 ];
 
 const TeamCarousel = () => {
   return (
     <div className="py-12 bg-white text-center">
-      <h2 className="text-3xl font-bold mb-8 text-gray-800">Meet Our Team</h2>
+      <h2 className="text-4xl font-bold mb-8 text-gray-800 ">Meet Our Team</h2>
       <div className="max-w-6xl mx-auto px-4">
         <Swiper
           modules={[Autoplay]}
