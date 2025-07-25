@@ -18,7 +18,7 @@ function App() {
       <Portfolio />
       <Testimonials />
       <Blog />
-      <Contact />
+           <Contact />
       <Footer />
     </div>
   );
