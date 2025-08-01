@@ -1,4 +1,3 @@
-import React from 'react';
 import { Target, Users, Award, MessageCircle } from 'lucide-react';
 
 const About = () => {
@@ -32,6 +31,7 @@ const About = () => {
               >
                 Learn More
               </button>
+              
               <a
                 href="https://wa.me/1234567890"
                 target="_blank"

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import  { useState, useEffect } from 'react';
 import { Menu, X, MessageCircle } from 'lucide-react';
 
 const Header = () => {
@@ -31,7 +31,7 @@ const Header = () => {
             <div className="w-10 h-10 bg-gradient-to-r from-blue-600 to-teal-600 rounded-lg flex items-center justify-center">
               <span className="text-white font-bold text-lg">TP</span>
             </div>
-            <span className="text-xl font-bold text-gray-900">Tech Potato Softwares</span>
+            <span className="text-xl font-bold text-white">Tech Potato Softwares</span>
           </div>
 
           <nav className="hidden md:flex space-x-8">
@@ -39,7 +39,7 @@ const Header = () => {
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
-                className="text-gray-700 hover:text-blue-600 transition-colors duration-200 capitalize font-medium"
+                className="text-white hover:text-blue-300 transition-colors duration-200 capitalize font-medium"
               >
                 {item}
               </button>
