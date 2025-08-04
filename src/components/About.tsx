@@ -1,5 +1,7 @@
 
+
 import { Target, Users, Award,} from 'lucide-react';
+
 
 const About = () => {
   return (
@@ -33,8 +35,7 @@ const About = () => {
                 Learn More
               </button>
               
-       
-              
+
             </div>
           </div>
           

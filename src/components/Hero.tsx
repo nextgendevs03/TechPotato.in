@@ -3,17 +3,23 @@ import { ArrowRight, Play } from 'lucide-react';
 
 const Hero = () => {
   return (
-    <section id="home" className="min-h-screen bg-gradient-to-br from-blue-900 via-blue-800 to-teal-800 relative overflow-hidden">
-      <div className="absolute inset-0 bg-black/20"></div>
-      
-      {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute -top-4 -right-4 w-72 h-72 bg-blue-400/20 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute top-64 -left-32 w-96 h-96 bg-teal-400/20 rounded-full blur-3xl animate-pulse delay-1000"></div>
-        <div className="absolute bottom-32 right-1/3 w-64 h-64 bg-orange-400/20 rounded-full blur-3xl animate-pulse delay-2000"></div>
-      </div>
+    <section
+      id="home"
+      className="min-h-screen w-full relative flex items-center justify-center overflow-hidden"
+    >
+      {/* ✅ Fullscreen Background Image */}
+      <img
+        src="/hero section.jpg"
+        alt="Hero background"
+        className="absolute inset-0 w-full h-full object-cover"
+        style={{ zIndex: 0 }}
+      />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16">
+      {/* ✅ Dark Overlay for Better Text Visibility */}
+      <div className="absolute inset-0 bg-black/60" style={{ zIndex: 1 }}></div>
+
+      {/* ✅ Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16 flex flex-col items-center justify-center w-full">
         <div className="text-center">
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
             Transform Your Business with
@@ -21,7 +27,7 @@ const Hero = () => {
               Smart IT Solutions
             </span>
           </h1>
-          
+
           <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto leading-relaxed">
             We empower businesses with cutting-edge software solutions, digital transformation strategies, 
             and innovative technology services that drive growth and success.
@@ -35,7 +41,7 @@ const Hero = () => {
               <span>Get Started Today</span>
               <ArrowRight size={20} />
             </button>
-            
+
             <button className="border-2 border-white/30 hover:border-white/50 text-white px-8 py-4 rounded-lg text-lg font-semibold flex items-center space-x-2 transition-all duration-300 hover:bg-white/10">
               <Play size={20} />
               <span>Watch Demo</span>
@@ -44,8 +50,8 @@ const Hero = () => {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto">
             {[
-              { number: '200+', label: 'Projects Completed' },
-              { number: '50+', label: 'Happy Clients' },
+              { number: '10+', label: 'Projects Completed' },
+              { number: '10+', label: 'Happy Clients' },
               { number: '5+', label: 'Years Experience' },
               { number: '24/7', label: 'Support Available' }
             ].map((stat, index) => (
@@ -58,9 +64,6 @@ const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 right-8">
-       
-      </div>
     </section>
   );
 };

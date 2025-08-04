@@ -1,5 +1,7 @@
+
 import { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -55,7 +57,7 @@ const Testimonials = () => {
     }, 5000);
 
     return () => clearInterval(interval);
-  }, [testimonials.length]); 
+
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -164,11 +166,11 @@ const Testimonials = () => {
               <div className="text-gray-600">Client Satisfaction</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-teal-600 mb-2">200+</div>
+              <div className="text-3xl font-bold text-teal-600 mb-2">10+</div>
               <div className="text-gray-600">Projects Completed</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-orange-600 mb-2">50+</div>
+              <div className="text-3xl font-bold text-orange-600 mb-2">10+</div>
               <div className="text-gray-600">Happy Clients</div>
             </div>
             <div>
