@@ -1,7 +1,5 @@
-
 import { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-
 
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
@@ -12,7 +10,7 @@ const Testimonials = () => {
       position: 'CEO, TechStart Inc.',
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Tech Potato Softwares transformed our entire business operations. Their custom software solution increased our efficiency by 60% and the team was incredibly professional throughout the project.',
+      text: 'Tech Potato Softwares transformed our entire business operations...',
       company: 'TechStart Inc.'
     },
     {
@@ -20,7 +18,7 @@ const Testimonials = () => {
       position: 'CTO, FinanceFlow',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Outstanding work on our financial analytics platform. The team delivered beyond our expectations with cutting-edge features and rock-solid security. Highly recommended!',
+      text: 'Outstanding work on our financial analytics platform...',
       company: 'FinanceFlow'
     },
     {
@@ -28,7 +26,7 @@ const Testimonials = () => {
       position: 'Founder, HealthTech Solutions',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'The healthcare management system they built for us is phenomenal. Patient satisfaction increased by 40% and our staff productivity improved significantly. Excellent partnership!',
+      text: 'The healthcare management system they built for us is phenomenal...',
       company: 'HealthTech Solutions'
     },
     {
@@ -36,7 +34,7 @@ const Testimonials = () => {
       position: 'Operations Manager, RetailMax',
       image: 'https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Their e-commerce solution helped us scale from a small business to processing thousands of orders daily. The platform is robust, user-friendly, and perfectly suited our needs.',
+      text: 'Their e-commerce solution helped us scale from a small business...',
       company: 'RetailMax'
     },
     {
@@ -44,20 +42,18 @@ const Testimonials = () => {
       position: 'VP Technology, EduLearn',
       image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Working with Tech Potato Softwares was a game-changer for our educational platform. Their innovative approach and attention to detail resulted in a product that exceeded all expectations.',
+      text: 'Working with Tech Potato Softwares was a game-changer...',
       company: 'EduLearn'
     }
   ];
 
+  // Auto change testimonial every 5s
   useEffect(() => {
-   if (testimonials.length === 0) return;
-
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
     }, 5000);
-
     return () => clearInterval(interval);
-
+  }, [testimonials.length]);
 
   const nextTestimonial = () => {
     setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -90,7 +86,7 @@ const Testimonials = () => {
                 "{testimonials[currentTestimonial].text}"
               </blockquote>
             </div>
-            
+
             <div className="flex items-center justify-center space-x-4">
               <img 
                 src={testimonials[currentTestimonial].image} 
@@ -194,7 +190,6 @@ const Testimonials = () => {
               >
                 Get Your Quote
               </button>
-             
             </div>
           </div>
         </div>
