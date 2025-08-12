@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Clock,} from 'lucide-react';
-
 const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
@@ -11,7 +10,6 @@ const Contact = () => {
     budget: '',
     message: ''
   });
-
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {

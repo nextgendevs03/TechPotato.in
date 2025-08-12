@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
-
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -10,7 +9,7 @@ const Testimonials = () => {
       position: 'CEO, TechStart Inc.',
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Tech Potato Softwares transformed our entire business operations...',
+      text:  'Tech Potato Softwares transformed our entire business operations. Their custom software solution increased our efficiency by 60% and the team was incredibly professional throughout the project.',
       company: 'TechStart Inc.'
     },
     {
@@ -18,7 +17,7 @@ const Testimonials = () => {
       position: 'CTO, FinanceFlow',
       image: 'https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Outstanding work on our financial analytics platform...',
+      text: 'Outstanding work on our financial analytics platform. The team delivered beyond our expectations with cutting-edge features and rock-solid security. Highly recommended!',
       company: 'FinanceFlow'
     },
     {
@@ -26,7 +25,7 @@ const Testimonials = () => {
       position: 'Founder, HealthTech Solutions',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'The healthcare management system they built for us is phenomenal...',
+      text: 'The healthcare management system they built for us is phenomenal. Patient satisfaction increased by 40% and our staff productivity improved significantly. Excellent partnership!',
       company: 'HealthTech Solutions'
     },
     {
@@ -34,7 +33,7 @@ const Testimonials = () => {
       position: 'Operations Manager, RetailMax',
       image: 'https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Their e-commerce solution helped us scale from a small business...',
+      text: 'Their e-commerce solution helped us scale from a small business to processing thousands of orders daily. The platform is robust, user-friendly, and perfectly suited our needs.',
       company: 'RetailMax'
     },
     {
@@ -42,7 +41,7 @@ const Testimonials = () => {
       position: 'VP Technology, EduLearn',
       image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Working with Tech Potato Softwares was a game-changer...',
+      text:'Working with Tech Potato Softwares was a game-changer for our educational platform. Their innovative approach and attention to detail resulted in a product that exceeded all expectations.',
       company: 'EduLearn'
     }
   ];

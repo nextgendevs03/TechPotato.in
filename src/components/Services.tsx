@@ -1,6 +1,4 @@
-
 import { Code, Smartphone, Cloud, Shield, BarChart, Cog} from 'lucide-react';
-
 const Services = () => {
   const services = [
     {

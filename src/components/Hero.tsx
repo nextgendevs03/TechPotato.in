@@ -1,6 +1,4 @@
-
 import { ArrowRight, Play } from 'lucide-react';
-
 const Hero = () => {
   return (
     <section

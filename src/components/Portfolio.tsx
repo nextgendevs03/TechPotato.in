@@ -1,7 +1,5 @@
-
 import { useState } from 'react';
 import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
-
 
 const Portfolio = () => {
   const [currentProject, setCurrentProject] = useState(0);

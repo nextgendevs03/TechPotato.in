@@ -1,6 +1,4 @@
-
 import { Calendar, User, ArrowRight} from 'lucide-react';
-
 const Blog = () => {
   const blogPosts = [
     {

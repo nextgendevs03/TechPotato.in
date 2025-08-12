@@ -1,8 +1,4 @@
-
-
 import { Target, Users, Award,} from 'lucide-react';
-
-
 const About = () => {
   return (
     <section id="about" className="py-20 bg-white">
