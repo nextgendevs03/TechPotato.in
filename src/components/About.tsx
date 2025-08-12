@@ -1,5 +1,4 @@
-import { Target, Users, Award, MessageCircle } from 'lucide-react';
-
+import { Target, Users, Award,} from 'lucide-react';
 const About = () => {
   return (
     <section id="about" className="py-20 bg-white">
@@ -32,14 +31,7 @@ const About = () => {
                 Learn More
               </button>
               
-              <a
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-500 hover:bg-green-600 text-white p-3 rounded-lg transition-colors duration-200"
-              >
-                <MessageCircle size={20} />
-              </a>
+
             </div>
           </div>
           

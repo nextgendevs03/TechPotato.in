@@ -1,6 +1,4 @@
-import React from 'react';
-import { MessageCircle, Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowUp } from 'lucide-react';
-
+import { Mail, Phone, MapPin, Facebook, Twitter, Linkedin, Instagram, ArrowUp } from 'lucide-react';
 const Footer = () => {
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -121,15 +119,7 @@ const Footer = () => {
               </div>
 
               <div className="pt-4">
-                <a
-                  href="https://wa.me/1234567890"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-lg flex items-center space-x-2 transition-colors duration-200 w-fit"
-                >
-                  <MessageCircle size={16} />
-                  <span>WhatsApp Us</span>
-                </a>
+              
               </div>
             </div>
           </div>

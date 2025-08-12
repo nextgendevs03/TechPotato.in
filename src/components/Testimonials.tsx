@@ -1,6 +1,5 @@
-import  { useState, useEffect } from 'react';
-import { Star, ChevronLeft, ChevronRight, MessageCircle } from 'lucide-react';
-
+import { useState, useEffect } from 'react';
+import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
 const Testimonials = () => {
   const [currentTestimonial, setCurrentTestimonial] = useState(0);
 
@@ -10,7 +9,7 @@ const Testimonials = () => {
       position: 'CEO, TechStart Inc.',
       image: 'https://images.pexels.com/photos/3184339/pexels-photo-3184339.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Tech Potato Softwares transformed our entire business operations. Their custom software solution increased our efficiency by 60% and the team was incredibly professional throughout the project.',
+      text:  'Tech Potato Softwares transformed our entire business operations. Their custom software solution increased our efficiency by 60% and the team was incredibly professional throughout the project.',
       company: 'TechStart Inc.'
     },
     {
@@ -42,11 +41,12 @@ const Testimonials = () => {
       position: 'VP Technology, EduLearn',
       image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=150',
       rating: 5,
-      text: 'Working with Tech Potato Softwares was a game-changer for our educational platform. Their innovative approach and attention to detail resulted in a product that exceeded all expectations.',
+      text:'Working with Tech Potato Softwares was a game-changer for our educational platform. Their innovative approach and attention to detail resulted in a product that exceeded all expectations.',
       company: 'EduLearn'
     }
   ];
 
+  // Auto change testimonial every 5s
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentTestimonial((prev) => (prev + 1) % testimonials.length);
@@ -85,7 +85,7 @@ const Testimonials = () => {
                 "{testimonials[currentTestimonial].text}"
               </blockquote>
             </div>
-            
+
             <div className="flex items-center justify-center space-x-4">
               <img 
                 src={testimonials[currentTestimonial].image} 
@@ -189,15 +189,6 @@ const Testimonials = () => {
               >
                 Get Your Quote
               </button>
-              <a
-                href="https://wa.me/1234567890"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-green-500 hover:bg-green-600 text-white px-6 py-3 rounded-lg font-semibold flex items-center justify-center space-x-2 transition-colors duration-200"
-              >
-                <MessageCircle size={20} />
-                <span>Start Conversation</span>
-              </a>
             </div>
           </div>
         </div>

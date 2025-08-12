@@ -1,5 +1,4 @@
 import { ArrowRight, Play } from 'lucide-react';
-
 const Hero = () => {
   return (
     <section
@@ -62,6 +61,7 @@ const Hero = () => {
           </div>
         </div>
       </div>
+
     </section>
   );
 };
