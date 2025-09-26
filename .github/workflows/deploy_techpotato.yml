@@ -1,4 +1,4 @@
-name: 🚀 Deploy nextgendevs.in to BigRock
+name: 🚀 Deploy techpotato.in to BigRock
 
 on:
   push:
