@@ -1,5 +1,12 @@
-import { Calendar, User, ArrowRight} from 'lucide-react';
+import { Calendar, User, ArrowRight, Clock } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
+import { useRef, useState } from 'react';
+
 const Blog = () => {
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
+  const [activeCategory, setActiveCategory] = useState('All');
+
   const blogPosts = [
     {
       title: 'The Future of AI in Software Development',
@@ -8,7 +15,8 @@ const Blog = () => {
       author: 'John Smith',
       date: '2024-01-15',
       category: 'AI & Technology',
-      readTime: '5 min read'
+      readTime: '5 min read',
+      featured: true,
     },
     {
       title: 'Cloud Migration: Best Practices for 2024',
@@ -17,7 +25,7 @@ const Blog = () => {
       author: 'Sarah Davis',
       date: '2024-01-10',
       category: 'Cloud Computing',
-      readTime: '7 min read'
+      readTime: '7 min read',
     },
     {
       title: 'Cybersecurity Trends Every Business Should Know',
@@ -26,7 +34,7 @@ const Blog = () => {
       author: 'Mike Johnson',
       date: '2024-01-05',
       category: 'Cybersecurity',
-      readTime: '6 min read'
+      readTime: '6 min read',
     },
     {
       title: 'Mobile App Development: Native vs Cross-Platform',
@@ -35,187 +43,219 @@ const Blog = () => {
       author: 'Emily Chen',
       date: '2024-01-01',
       category: 'Mobile Development',
-      readTime: '4 min read'
+      readTime: '4 min read',
     },
-    {
-      title: 'Data Analytics: Turning Information into Insights',
-      excerpt: 'Discover how modern data analytics can transform your business decision-making process.',
-      image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
-      author: 'David Wilson',
-      date: '2023-12-28',
-      category: 'Data Science',
-      readTime: '8 min read'
-    },
-    {
-      title: 'Building Scalable Web Applications',
-      excerpt: 'Learn the architectural patterns and technologies needed to build applications that scale.',
-      image: 'https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?auto=compress&cs=tinysrgb&w=800',
-      author: 'Lisa Zhang',
-      date: '2023-12-25',
-      category: 'Web Development',
-      readTime: '6 min read'
-    }
   ];
 
-  const categories = ['All', 'AI & Technology', 'Cloud Computing', 'Cybersecurity', 'Mobile Development', 'Data Science', 'Web Development'];
+  const categories = ['All', 'AI & Technology', 'Cloud Computing', 'Cybersecurity', 'Mobile Development'];
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.1, delayChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
+  };
+
+  const filteredPosts = activeCategory === 'All' 
+    ? blogPosts 
+    : blogPosts.filter(post => post.category === activeCategory);
+
+  const featuredPost = blogPosts.find(post => post.featured);
 
   return (
-    <section id="blog" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Latest Insights</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay updated with the latest trends, technologies, and best practices in software development and digital transformation.
+    <section id="blog" className="py-24 gradient-bg-blog relative overflow-hidden" ref={sectionRef}>
+      {/* Background */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/50 to-transparent" />
+      <div className="absolute top-1/3 -right-48 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+      <div className="absolute bottom-1/3 -left-48 w-96 h-96 bg-secondary/5 rounded-full blur-[100px]" />
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+      >
+        {/* Section Header */}
+        <motion.div variants={itemVariants} className="text-center mb-12">
+          <span className="inline-block px-4 py-2 rounded-full glass border border-accent/30 text-accent text-sm font-medium mb-4">
+            Our Blog
+          </span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+            Latest <span className="gradient-text">Insights</span>
+          </h2>
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
+            Stay updated with the latest trends, technologies, and best practices in software development.
           </p>
-        </div>
+        </motion.div>
 
         {/* Category Filter */}
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {categories.map((category, index) => (
+        <motion.div variants={itemVariants} className="flex flex-wrap justify-center gap-3 mb-12">
+          {categories.map((category) => (
             <button
-              key={index}
-              className={`px-4 py-2 rounded-full text-sm font-semibold transition-colors duration-200 ${
-                index === 0 
-                  ? 'bg-blue-600 text-white' 
-                  : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+              key={category}
+              onClick={() => setActiveCategory(category)}
+              className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                activeCategory === category
+                  ? 'bg-gradient-to-r from-primary to-secondary text-background'
+                  : 'glass border border-white/10 text-text-secondary hover:border-primary/50 hover:text-white'
               }`}
             >
               {category}
             </button>
           ))}
-        </div>
+        </motion.div>
 
         {/* Featured Post */}
-        <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-2xl p-8 lg:p-12 mb-16">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
-                Featured Post
-              </div>
-              <h3 className="text-3xl font-bold text-gray-900 mb-4">{blogPosts[0].title}</h3>
-              <p className="text-gray-600 mb-6 leading-relaxed">{blogPosts[0].excerpt}</p>
-              
-              <div className="flex items-center space-x-6 text-sm text-gray-500 mb-6">
-                <div className="flex items-center space-x-2">
-                  <User size={16} />
-                  <span>{blogPosts[0].author}</span>
+        {featuredPost && activeCategory === 'All' && (
+          <motion.div variants={itemVariants} className="mb-16">
+            <div className="glass rounded-2xl overflow-hidden border border-white/10 hover:border-primary/30 transition-all duration-300 group">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="relative overflow-hidden">
+                  <img
+                    src={featuredPost.image}
+                    alt={featuredPost.title}
+                    className="w-full h-64 lg:h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-r from-background/80 to-transparent lg:from-transparent lg:via-transparent lg:to-background/80" />
+                  <div className="absolute top-4 left-4">
+                    <span className="px-4 py-2 rounded-full bg-gradient-to-r from-primary to-secondary text-background text-sm font-semibold">
+                      Featured
+                    </span>
+                  </div>
                 </div>
-                <div className="flex items-center space-x-2">
-                  <Calendar size={16} />
-                  <span>{new Date(blogPosts[0].date).toLocaleDateString()}</span>
+                <div className="p-8 lg:p-12 flex flex-col justify-center">
+                  <span className="inline-block px-3 py-1 rounded-full glass border border-primary/30 text-primary text-sm font-medium mb-4 w-fit">
+                    {featuredPost.category}
+                  </span>
+                  <h3 className="text-2xl lg:text-3xl font-display font-bold text-white mb-4 group-hover:text-primary transition-colors">
+                    {featuredPost.title}
+                  </h3>
+                  <p className="text-text-secondary mb-6 leading-relaxed">
+                    {featuredPost.excerpt}
+                  </p>
+                  <div className="flex items-center gap-6 text-sm text-text-muted mb-6">
+                    <div className="flex items-center gap-2">
+                      <User size={14} />
+                      <span>{featuredPost.author}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Calendar size={14} />
+                      <span>{new Date(featuredPost.date).toLocaleDateString()}</span>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <Clock size={14} />
+                      <span>{featuredPost.readTime}</span>
+                    </div>
+                  </div>
+                  <motion.button
+                    whileHover={{ scale: 1.02, x: 5 }}
+                    className="flex items-center gap-2 text-primary font-semibold group/btn"
+                  >
+                    Read Article
+                    <ArrowRight size={16} className="transition-transform group-hover/btn:translate-x-1" />
+                  </motion.button>
                 </div>
-                <span>{blogPosts[0].readTime}</span>
-              </div>
-
-              <div className="flex items-center space-x-4">
-                <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200">
-                  <span>Read More</span>
-                  <ArrowRight size={16} />
-                </button>
-       
               </div>
             </div>
-            
-            <div className="relative">
-              <img 
-                src={blogPosts[0].image} 
-                alt={blogPosts[0].title}
-                className="w-full h-80 object-cover rounded-xl shadow-2xl"
-              />
-              <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-semibold text-gray-700">
-                {blogPosts[0].category}
-              </div>
-            </div>
-          </div>
-        </div>
+          </motion.div>
+        )}
 
         {/* Blog Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {blogPosts.slice(1).map((post, index) => (
-            <article key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+        <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+          {filteredPosts.filter(post => !post.featured || activeCategory !== 'All').map((post, index) => (
+            <motion.article
+              key={index}
+              whileHover={{ y: -8 }}
+              className="glass rounded-xl overflow-hidden border border-white/10 hover:border-primary/30 transition-all duration-300 group"
+            >
               <div className="relative overflow-hidden">
-                <img 
-                  src={post.image} 
+                <img
+                  src={post.image}
                   alt={post.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
+                  className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
                 />
-                <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-semibold text-gray-700">
-                  {post.category}
+                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
+                <div className="absolute top-4 left-4">
+                  <span className="px-3 py-1 rounded-full glass text-xs font-semibold text-white">
+                    {post.category}
+                  </span>
                 </div>
               </div>
-              
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-200">
+                <h3 className="text-lg font-display font-bold text-white mb-3 group-hover:text-primary transition-colors line-clamp-2">
                   {post.title}
                 </h3>
-                <p className="text-gray-600 mb-4 leading-relaxed">{post.excerpt}</p>
-                
-                <div className="flex items-center justify-between text-sm text-gray-500 mb-4">
-                  <div className="flex items-center space-x-4">
-                    <div className="flex items-center space-x-1">
-                      <User size={14} />
+                <p className="text-text-secondary text-sm mb-4 leading-relaxed line-clamp-2">
+                  {post.excerpt}
+                </p>
+                <div className="flex items-center justify-between text-xs text-text-muted mb-4">
+                  <div className="flex items-center gap-4">
+                    <div className="flex items-center gap-1">
+                      <User size={12} />
                       <span>{post.author}</span>
                     </div>
-                    <div className="flex items-center space-x-1">
-                      <Calendar size={14} />
+                    <div className="flex items-center gap-1">
+                      <Calendar size={12} />
                       <span>{new Date(post.date).toLocaleDateString()}</span>
                     </div>
                   </div>
                   <span>{post.readTime}</span>
                 </div>
-                
-                <div className="flex items-center justify-between">
-                  <button className="text-blue-600 hover:text-blue-700 font-semibold flex items-center space-x-1 transition-colors duration-200">
-                    <span>Read More</span>
-                    <ArrowRight size={14} />
-                  </button>
-                 
-                </div>
+                <button className="flex items-center gap-2 text-primary text-sm font-semibold hover:gap-3 transition-all">
+                  Read More
+                  <ArrowRight size={14} />
+                </button>
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
 
-        {/* Newsletter Signup */}
-        <div className="bg-gradient-to-r from-blue-600 to-teal-600 text-white p-8 rounded-2xl text-center">
-          <h3 className="text-2xl font-bold mb-4">Stay Updated with Tech Insights</h3>
-          <p className="text-blue-100 mb-6 max-w-2xl mx-auto">
-            Subscribe to our newsletter and get the latest articles, insights, and technology trends delivered to your inbox.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 rounded-lg text-gray-900 focus:outline-none focus:ring-2 focus:ring-white/50"
-            />
-            <button className="bg-white text-blue-600 hover:bg-gray-100 px-6 py-3 rounded-lg font-semibold transition-colors duration-200">
-              Subscribe
-            </button>
-          </div>
-          <p className="text-blue-200 text-sm mt-4">
-            Join 5,000+ subscribers. No spam, unsubscribe anytime.
-          </p>
-        </div>
-
-        {/* CTA Section */}
-        <div className="text-center mt-16">
-          <div className="bg-gray-50 p-8 rounded-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Have Questions About Our Insights?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Our team is always happy to discuss technology trends and how they can benefit your business.
+        {/* Newsletter */}
+        <motion.div
+          variants={itemVariants}
+          className="relative rounded-2xl overflow-hidden"
+        >
+          <div className="absolute inset-0 bg-gradient-to-r from-primary/20 via-secondary/20 to-accent/20" />
+          <div className="relative glass border border-white/10 rounded-2xl p-8 md:p-12 text-center">
+            <h3 className="text-2xl md:text-3xl font-display font-bold text-white mb-4">
+              Stay Updated with Tech Insights
+            </h3>
+            <p className="text-text-secondary mb-8 max-w-2xl mx-auto">
+              Subscribe to our newsletter and get the latest articles, insights, and technology trends delivered to your inbox.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
+            <form className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+              <input
+                type="email"
+                placeholder="Enter your email address"
+                className="flex-1 px-5 py-3 rounded-lg glass border border-white/10 focus:border-primary/50 text-white placeholder-text-muted"
+              />
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="btn-electric whitespace-nowrap"
               >
-                Contact Our Experts
-              </button>
-            
-            </div>
+                <span>Subscribe</span>
+              </motion.button>
+            </form>
+            <p className="text-text-muted text-sm mt-4">
+              Join 5,000+ subscribers. No spam, unsubscribe anytime.
+            </p>
           </div>
-        </div>
-      </div>
+        </motion.div>
+      </motion.div>
+
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
     </section>
   );
 };

@@ -1,8 +1,11 @@
-import { useState } from 'react';
-import { ExternalLink, Github, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useState, useRef } from 'react';
+import { ExternalLink, ChevronLeft, ChevronRight, ArrowUpRight } from 'lucide-react';
+import { motion, useInView, AnimatePresence } from 'framer-motion';
 
 const Portfolio = () => {
   const [currentProject, setCurrentProject] = useState(0);
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
 
   const projects = [
     {
@@ -11,7 +14,8 @@ const Portfolio = () => {
       description: 'A comprehensive e-commerce solution with advanced inventory management, payment processing, and analytics dashboard.',
       image: 'https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
-      results: ['40% increase in sales', '60% faster checkout', '99.9% uptime']
+      results: ['40% increase in sales', '60% faster checkout', '99.9% uptime'],
+      color: 'primary',
     },
     {
       title: 'Healthcare Management System',
@@ -19,7 +23,8 @@ const Portfolio = () => {
       description: 'Complete hospital management system with patient records, appointment scheduling, and billing integration.',
       image: 'https://images.pexels.com/photos/4033148/pexels-photo-4033148.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['Angular', 'Java', 'PostgreSQL', 'Docker'],
-      results: ['50% reduced paperwork', 'Improved patient care', 'HIPAA compliant']
+      results: ['50% reduced paperwork', 'Improved patient care', 'HIPAA compliant'],
+      color: 'secondary',
     },
     {
       title: 'Financial Analytics Dashboard',
@@ -27,7 +32,8 @@ const Portfolio = () => {
       description: 'Real-time financial data visualization and analytics platform for investment firms and trading companies.',
       image: 'https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['Vue.js', 'Python', 'Redis', 'AWS'],
-      results: ['Real-time insights', '30% faster decisions', 'Automated reporting']
+      results: ['Real-time insights', '30% faster decisions', 'Automated reporting'],
+      color: 'accent',
     },
     {
       title: 'Mobile Banking App',
@@ -35,8 +41,9 @@ const Portfolio = () => {
       description: 'Secure mobile banking application with biometric authentication and advanced transaction features.',
       image: 'https://images.pexels.com/photos/4386372/pexels-photo-4386372.jpeg?auto=compress&cs=tinysrgb&w=800',
       technologies: ['React Native', 'Firebase', 'Blockchain', 'ML'],
-      results: ['2M+ downloads', 'Bank-grade security', '4.8 app store rating']
-    }
+      results: ['2M+ downloads', 'Bank-grade security', '4.8 app store rating'],
+      color: 'primary',
+    },
   ];
 
   const nextProject = () => {
@@ -47,149 +54,246 @@ const Portfolio = () => {
     setCurrentProject((prev) => (prev - 1 + projects.length) % projects.length);
   };
 
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: { staggerChildren: 0.15, delayChildren: 0.2 },
+    },
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    },
+  };
+
+  const getColorClass = (color: string) => {
+    switch (color) {
+      case 'primary':
+        return 'text-primary bg-primary/10 border-primary/30';
+      case 'secondary':
+        return 'text-secondary bg-secondary/10 border-secondary/30';
+      case 'accent':
+        return 'text-accent bg-accent/10 border-accent/30';
+      default:
+        return 'text-primary bg-primary/10 border-primary/30';
+    }
+  };
+
   return (
-    <section id="portfolio" className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Our Portfolio</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+    <section id="portfolio" className="py-24 gradient-bg-portfolio relative overflow-hidden" ref={sectionRef}>
+      {/* Background */}
+      <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
+      <div className="absolute top-1/2 -translate-y-1/2 -left-48 w-96 h-96 bg-accent/5 rounded-full blur-[100px]" />
+      <div className="absolute top-1/2 -translate-y-1/2 -right-48 w-96 h-96 bg-primary/5 rounded-full blur-[100px]" />
+
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate={isInView ? 'visible' : 'hidden'}
+        className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+      >
+        {/* Section Header */}
+        <motion.div variants={itemVariants} className="text-center mb-16">
+          <span className="inline-block px-4 py-2 rounded-full glass border border-accent/30 text-accent text-sm font-medium mb-4">
+            Our Work
+          </span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-white mb-6">
+            Featured <span className="gradient-text">Projects</span>
+          </h2>
+          <p className="text-lg text-text-secondary max-w-3xl mx-auto">
             Explore our successful projects and see how we've helped businesses achieve their digital transformation goals.
           </p>
-        </div>
+        </motion.div>
 
         {/* Featured Project Carousel */}
-        <div className="relative mb-16">
-          <div className="bg-gradient-to-r from-blue-50 to-teal-50 rounded-2xl p-8 lg:p-12">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <div className="bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-semibold inline-block mb-4">
-                  {projects[currentProject].category}
-                </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">{projects[currentProject].title}</h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">{projects[currentProject].description}</p>
-                
-                <div className="mb-6">
-                  <h4 className="font-semibold text-gray-900 mb-3">Technologies Used:</h4>
-                  <div className="flex flex-wrap gap-2">
-                    {projects[currentProject].technologies.map((tech, index) => (
-                      <span key={index} className="bg-white text-gray-700 px-3 py-1 rounded-full text-sm">
-                        {tech}
-                      </span>
-                    ))}
+        <motion.div variants={itemVariants} className="relative mb-16">
+          <div className="glass rounded-2xl p-4 md:p-8 border border-white/10">
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentProject}
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                exit={{ opacity: 0, x: -50 }}
+                transition={{ duration: 0.4 }}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center"
+              >
+                {/* Content */}
+                <div className="order-2 lg:order-1">
+                  <span
+                    className={`inline-block px-4 py-2 rounded-full text-sm font-semibold mb-4 ${getColorClass(
+                      projects[currentProject].color
+                    )}`}
+                  >
+                    {projects[currentProject].category}
+                  </span>
+                  <h3 className="text-3xl font-display font-bold text-white mb-4">
+                    {projects[currentProject].title}
+                  </h3>
+                  <p className="text-text-secondary mb-6 leading-relaxed">
+                    {projects[currentProject].description}
+                  </p>
+
+                  {/* Technologies */}
+                  <div className="mb-6">
+                    <h4 className="text-sm font-semibold text-text-secondary uppercase tracking-wider mb-3">
+                      Technologies
+                    </h4>
+                    <div className="flex flex-wrap gap-2">
+                      {projects[currentProject].technologies.map((tech, index) => (
+                        <span
+                          key={index}
+                          className="px-3 py-1.5 rounded-full text-sm glass border border-white/10 text-text-secondary"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
                   </div>
-                </div>
 
-                <div className="mb-8">
-                  <h4 className="font-semibold text-gray-900 mb-3">Key Results:</h4>
-                  <ul className="space-y-2">
-                    {projects[currentProject].results.map((result, index) => (
-                      <li key={index} className="text-gray-600 flex items-center">
-                        <div className="w-2 h-2 bg-green-500 rounded-full mr-3"></div>
-                        {result}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                  {/* Results */}
+                  <div className="mb-8">
+                    <h4 className="text-sm font-semibold text-text-secondary uppercase tracking-wider mb-3">
+                      Key Results
+                    </h4>
+                    <ul className="space-y-2">
+                      {projects[currentProject].results.map((result, index) => (
+                        <li key={index} className="flex items-center gap-2 text-text-secondary">
+                          <div className="w-2 h-2 rounded-full bg-green-500" />
+                          {result}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
-                <div className="flex items-center space-x-4">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold flex items-center space-x-2 transition-colors duration-200">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.98 }}
+                    className="btn-electric flex items-center gap-2"
+                  >
+                    <span>View Case Study</span>
                     <ExternalLink size={16} />
-                    <span>View Project</span>
-                  </button>
-                 
+                  </motion.button>
                 </div>
-              </div>
-              
-              <div className="relative">
-                <img 
-                  src={projects[currentProject].image} 
-                  alt={projects[currentProject].title}
-                  className="w-full h-80 object-cover rounded-xl shadow-2xl"
+
+                {/* Image */}
+                <div className="order-1 lg:order-2 relative group">
+                  <div className="relative rounded-xl overflow-hidden">
+                    <img
+                      src={projects[currentProject].image}
+                      alt={projects[currentProject].title}
+                      className="w-full h-72 lg:h-96 object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
+                  </div>
+
+                  {/* Floating Elements */}
+                  <motion.div
+                    animate={{ y: [-5, 5, -5] }}
+                    transition={{ duration: 4, repeat: Infinity }}
+                    className="absolute -top-4 -right-4 glass rounded-xl p-3 border border-primary/30"
+                  >
+                    <ArrowUpRight className="w-6 h-6 text-primary" />
+                  </motion.div>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+          </div>
+
+          {/* Navigation */}
+          <div className="flex items-center justify-between mt-6">
+            <div className="flex gap-2">
+              {projects.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => setCurrentProject(index)}
+                  className={`w-12 h-1.5 rounded-full transition-all duration-300 ${
+                    index === currentProject
+                      ? 'bg-gradient-to-r from-primary to-secondary'
+                      : 'bg-white/20 hover:bg-white/40'
+                  }`}
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-xl"></div>
-              </div>
+              ))}
+            </div>
+            <div className="flex gap-3">
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={prevProject}
+                className="p-3 rounded-full glass border border-white/10 text-white hover:border-primary/50 transition-colors"
+              >
+                <ChevronLeft size={20} />
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.9 }}
+                onClick={nextProject}
+                className="p-3 rounded-full glass border border-white/10 text-white hover:border-primary/50 transition-colors"
+              >
+                <ChevronRight size={20} />
+              </motion.button>
             </div>
           </div>
-
-          {/* Navigation Buttons */}
-          <button 
-            onClick={prevProject}
-            className="absolute left-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-700 p-3 rounded-full shadow-lg transition-colors duration-200"
-          >
-            <ChevronLeft size={24} />
-          </button>
-          <button 
-            onClick={nextProject}
-            className="absolute right-4 top-1/2 transform -translate-y-1/2 bg-white hover:bg-gray-100 text-gray-700 p-3 rounded-full shadow-lg transition-colors duration-200"
-          >
-            <ChevronRight size={24} />
-          </button>
-
-          {/* Project Indicators */}
-          <div className="flex justify-center space-x-2 mt-6">
-            {projects.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentProject(index)}
-                className={`w-3 h-3 rounded-full transition-colors duration-200 ${
-                  index === currentProject ? 'bg-blue-600' : 'bg-gray-300'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
+        </motion.div>
 
         {/* Project Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div variants={itemVariants} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
           {projects.map((project, index) => (
-            <div key={index} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
-              <div className="relative overflow-hidden">
-                <img 
-                  src={project.image} 
-                  alt={project.title}
-                  className="w-full h-48 object-cover group-hover:scale-110 transition-transform duration-300"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-                  <div className="flex space-x-2">
-                    <button className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-lg hover:bg-white/30 transition-colors duration-200">
-                      <ExternalLink size={16} />
-                    </button>
-                    <button className="bg-white/20 backdrop-blur-sm text-white p-2 rounded-lg hover:bg-white/30 transition-colors duration-200">
-                      <Github size={16} />
-                    </button>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="p-6">
-                <div className="bg-blue-100 text-blue-600 px-3 py-1 rounded-full text-xs font-semibold inline-block mb-3">
+            <motion.div
+              key={index}
+              whileHover={{ y: -8 }}
+              onClick={() => setCurrentProject(index)}
+              className={`relative rounded-xl overflow-hidden cursor-pointer group ${
+                currentProject === index ? 'ring-2 ring-primary' : ''
+              }`}
+            >
+              <img
+                src={project.image}
+                alt={project.title}
+                className="w-full h-48 object-cover transition-transform duration-500 group-hover:scale-110"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute bottom-0 left-0 right-0 p-4">
+                <span
+                  className={`inline-block px-2 py-1 rounded text-xs font-semibold mb-2 ${getColorClass(
+                    project.color
+                  )}`}
+                >
                   {project.category}
-                </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
-                <p className="text-gray-600 text-sm leading-relaxed">{project.description}</p>
+                </span>
+                <h4 className="text-white font-semibold">{project.title}</h4>
               </div>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="text-center mt-16">
-          <div className="bg-gray-50 p-8 rounded-2xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Have a Project in Mind?</h3>
-            <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
-              Let's discuss your requirements and create something amazing together. Our team is ready to bring your vision to life.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
-                className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors duration-200"
-              >
-                Start Your Project
-              </button>
-             
-            </div>
-          </div>
-        </div>
-      </div>
+        {/* CTA */}
+        <motion.div
+          variants={itemVariants}
+          className="glass rounded-2xl p-8 text-center border border-white/10"
+        >
+          <h3 className="text-2xl font-display font-bold text-white mb-4">
+            Have a Project in Mind?
+          </h3>
+          <p className="text-text-secondary mb-6 max-w-2xl mx-auto">
+            Let's discuss your requirements and create something amazing together.
+          </p>
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="btn-electric"
+          >
+            <span>Start Your Project</span>
+          </motion.button>
+        </motion.div>
+      </motion.div>
+
+      <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent/30 to-transparent" />
     </section>
   );
 };
