@@ -416,3 +416,59 @@ input::placeholder, textarea::placeholder {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
+/* Marquee Animation for Partner/Client Carousels */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.animate-marquee {
+  animation: marquee 30s linear infinite;
+}
+
+/* Reverse direction for second carousel */
+@keyframes marquee-reverse {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-reverse {
+  animation: marquee-reverse 35s linear infinite;
+}
+
+/* Slower animation on mobile for better readability */
+@media (max-width: 768px) {
+  .animate-marquee {
+    animation-duration: 20s;
+  }
+  
+  .animate-marquee-reverse {
+    animation-duration: 25s;
+  }
+}
+
+/* Glow shadows for cards */
+.shadow-glow {
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.3);
+}
+
+.shadow-glow-sm {
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.2);
+}
+
+.shadow-glow-purple {
+  box-shadow: 0 0 30px rgba(168, 85, 247, 0.3);
+}
+
+.shadow-glow-orange {
+  box-shadow: 0 0 30px rgba(249, 115, 22, 0.3);
+}

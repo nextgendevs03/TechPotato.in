@@ -15,6 +15,9 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // TopBar height offset - when not scrolled, position header below topbar
+  const topOffset = isScrolled ? 'top-0' : 'top-[40px]';
+
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
@@ -65,7 +68,7 @@ const Header = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ duration: 0.5, ease: 'easeOut' }}
-      className={`fixed w-full z-50 transition-all duration-500 ${
+      className={`fixed w-full z-50 transition-all duration-500 ${topOffset} ${
         isScrolled
           ? 'glass-strong shadow-lg shadow-primary/5'
           : 'bg-transparent'

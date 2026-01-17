@@ -1,0 +1,313 @@
+{
+  "company": {
+    "name": "TechPotato Softwares",
+    "legalName": "TechPotato Softwares LLP",
+    "tagline": "AI-Powered Software Development",
+    "description": "A founder-led software studio building AI-powered web & mobile apps. Startup-friendly pricing. No corporate BS.",
+    "founded": "2025",
+    "location": "India",
+    "workMode": "Remote-First"
+  },
+  "hero": {
+    "badge": "AI-Powered Software Development",
+    "headline": "Build Smarter Software",
+    "headlineGradient": "Powered by AI",
+    "subtitle": "A founder-led software studio building AI-powered web & mobile apps. We turn your ideas into scalable products with startup-friendly pricing and direct founder access.",
+    "cta": {
+      "primary": "Start Your Project",
+      "secondary": "See Our Work"
+    },
+    "stats": [
+      { "value": 15, "suffix": "+", "label": "Projects Delivered" },
+      { "value": 100, "suffix": "%", "label": "Client Satisfaction" },
+      { "value": 4, "prefix": "<", "suffix": "h", "label": "Response Time" },
+      { "value": 0, "displayValue": "24/7", "label": "Support Available" }
+    ]
+  },
+  "about": {
+    "badge": "About Us",
+    "title": "About",
+    "titleGradient": "TechPotato Softwares",
+    "subtitle": "We are a founder-led software studio dedicated to building innovative technology solutions with AI at the core.",
+    "story": {
+      "title": "Our",
+      "titleHighlight": "Story",
+      "paragraphs": [
+        "We started TechPotato because we saw too many businesses getting overcharged for mediocre software. Big agencies with big promises and bigger invoices.",
+        "We're different. Small team. Direct access to developers. No account managers, no middlemen — just skilled people who care about your project and your success."
+      ]
+    },
+    "highlights": [
+      "Founder-Led Projects",
+      "AI-First Approach",
+      "Agile Development",
+      "Transparent Pricing",
+      "Direct Communication",
+      "Post-Launch Support"
+    ],
+    "stats": [
+      { "value": 15, "suffix": "+", "label": "Projects", "color": "primary" },
+      { "value": 100, "suffix": "%", "label": "Success Rate", "color": "secondary" }
+    ],
+    "values": [
+      {
+        "icon": "Target",
+        "title": "Our Mission",
+        "description": "To empower startups and SMBs with AI-powered technology solutions that drive growth without breaking the bank.",
+        "color": "primary"
+      },
+      {
+        "icon": "Users",
+        "title": "Our Team",
+        "description": "A small but mighty team of full-stack developers, designers, and AI enthusiasts passionate about building products that matter.",
+        "color": "secondary"
+      },
+      {
+        "icon": "Award",
+        "title": "Our Values",
+        "description": "Quality over quantity. Transparency over hidden costs. Partnership over transactions. Your success is our portfolio.",
+        "color": "accent"
+      }
+    ],
+    "team": [
+      {
+        "name": "Dipti Chate",
+        "role": "Founder & CEO",
+        "image": "/team/dipti.jpg",
+        "linkedin": "https://linkedin.com/in/diptichate",
+        "instagram": "https://instagram.com/diptichate",
+        "bio": "Visionary tech entrepreneur with a passion for building innovative software solutions that empower businesses."
+      }
+    ]
+  },
+  "services": [
+    {
+      "icon": "Code",
+      "title": "Web Applications",
+      "description": "Custom web apps built with React, Node.js, and modern frameworks. Fast, scalable, and user-friendly solutions for your business.",
+      "features": ["React / Next.js", "Node.js APIs", "Database Design", "Admin Panels"],
+      "color": "primary"
+    },
+    {
+      "icon": "Smartphone",
+      "title": "Mobile Apps",
+      "description": "iOS and Android apps that users love. Native performance with cross-platform efficiency to reach all your customers.",
+      "features": ["React Native", "Flutter", "iOS & Android", "App Store Launch"],
+      "color": "secondary"
+    },
+    {
+      "icon": "Brain",
+      "title": "AI Integration",
+      "description": "Add AI capabilities to your applications. Chatbots, content generation, image recognition, and smart automation powered by modern AI.",
+      "features": ["ChatGPT / Claude API", "AI Chatbots", "Smart Automation", "Content Generation"],
+      "color": "accent"
+    },
+    {
+      "icon": "Rocket",
+      "title": "MVP Development",
+      "description": "Turn your idea into a working product fast. Perfect for startups validating their concept and getting to market quickly.",
+      "features": ["Rapid Prototyping", "4-8 Week Delivery", "Investor-Ready", "Scalable Foundation"],
+      "color": "primary"
+    },
+    {
+      "icon": "Palette",
+      "title": "UI/UX Design",
+      "description": "Beautiful interfaces that convert. User research, wireframes, and pixel-perfect designs that make your product stand out.",
+      "features": ["User Research", "Wireframing", "Visual Design", "Prototyping"],
+      "color": "secondary"
+    },
+    {
+      "icon": "Wrench",
+      "title": "Maintenance & Support",
+      "description": "Keep your software running smoothly. Bug fixes, updates, performance optimization, and 24/7 monitoring.",
+      "features": ["Bug Fixes", "Updates", "Monitoring", "Performance"],
+      "color": "accent"
+    }
+  ],
+  "portfolio": [
+    {
+      "title": "AI-Powered E-Commerce App",
+      "category": "Mobile Development",
+      "client": "Fashion Retail Startup",
+      "duration": "8 weeks",
+      "description": "Cross-platform shopping app with AI-powered product recommendations, smart search, and seamless checkout experience.",
+      "image": "https://images.pexels.com/photos/4482900/pexels-photo-4482900.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "technologies": ["React Native", "Node.js", "MongoDB", "OpenAI API", "Razorpay"],
+      "results": ["Launched 2 weeks early", "4.5★ App Store rating", "500+ downloads in first month"],
+      "challenge": "Client needed to launch before festival season with a limited budget but wanted AI-powered personalization features.",
+      "solution": "Built with React Native for fast cross-platform delivery. Integrated OpenAI for smart product search and personalized recommendations.",
+      "color": "primary"
+    },
+    {
+      "title": "Healthcare Appointment Platform",
+      "category": "Web Application",
+      "client": "HealthTech Startup",
+      "duration": "10 weeks",
+      "description": "Complete appointment booking and patient management system with video consultations and automated reminders.",
+      "image": "https://images.pexels.com/photos/4033148/pexels-photo-4033148.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "technologies": ["React", "Node.js", "PostgreSQL", "Twilio", "Stripe"],
+      "results": ["50% reduced no-shows", "1000+ appointments booked", "HIPAA compliant"],
+      "challenge": "High patient no-show rates were hurting clinic revenue. Existing systems were outdated and not mobile-friendly.",
+      "solution": "Built a modern scheduling platform with SMS/WhatsApp reminders, video consultations, and a mobile-first patient portal.",
+      "color": "secondary"
+    },
+    {
+      "title": "Business Analytics Dashboard",
+      "category": "SaaS Platform",
+      "client": "Analytics Startup",
+      "duration": "12 weeks",
+      "description": "Real-time business intelligence dashboard with AI-powered insights, custom reports, and data visualization.",
+      "image": "https://images.pexels.com/photos/590022/pexels-photo-590022.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "technologies": ["Next.js", "Python", "PostgreSQL", "OpenAI", "AWS"],
+      "results": ["Real-time insights", "30% faster decisions", "Automated reporting"],
+      "challenge": "Client was spending hours creating manual reports. Needed real-time insights with AI-powered analysis.",
+      "solution": "Developed a dashboard with automated data pipelines, AI-generated insights, and customizable report templates.",
+      "color": "accent"
+    }
+  ],
+  "testimonials": [
+    {
+      "name": "Rahul Sharma",
+      "position": "Founder",
+      "company": "TechStart India",
+      "image": "https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=150",
+      "rating": 5,
+      "text": "TechPotato delivered our MVP in just 6 weeks. The quality exceeded our expectations and the founder's direct involvement made all the difference. Highly recommended for startups!"
+    },
+    {
+      "name": "Priya Patel",
+      "position": "CEO",
+      "company": "HealthFirst",
+      "image": "https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=150",
+      "rating": 5,
+      "text": "Working with TechPotato felt like having an in-house team. They understood our vision, suggested AI features we hadn't thought of, and delivered a product our users love."
+    },
+    {
+      "name": "Amit Kumar",
+      "position": "Product Manager",
+      "company": "RetailBox",
+      "image": "https://images.pexels.com/photos/2381069/pexels-photo-2381069.jpeg?auto=compress&cs=tinysrgb&w=150",
+      "rating": 5,
+      "text": "The AI integration they built for our e-commerce platform increased conversions by 25%. Fast communication, transparent pricing, and excellent technical skills."
+    }
+  ],
+  "testimonialStats": [
+    { "value": 100, "suffix": "%", "label": "Client Satisfaction", "color": "primary" },
+    { "value": 15, "suffix": "+", "label": "Projects Completed", "color": "secondary" },
+    { "value": 10, "suffix": "+", "label": "Happy Clients", "color": "accent" },
+    { "value": 0, "displayValue": "24/7", "label": "Support Available", "color": "primary" }
+  ],
+  "blog": [
+    {
+      "title": "How We Use AI in Every Project We Build",
+      "excerpt": "Discover how integrating AI from day one transforms ordinary software into intelligent solutions that grow with your business.",
+      "image": "https://images.pexels.com/photos/8386440/pexels-photo-8386440.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "author": "Hardi Virani",
+      "date": "2026-01-10",
+      "category": "AI & Technology",
+      "readTime": "5 min read",
+      "featured": true
+    },
+    {
+      "title": "MVP Development: From Idea to Launch in 6 Weeks",
+      "excerpt": "A practical guide to building your minimum viable product fast without sacrificing quality or scalability.",
+      "image": "https://images.pexels.com/photos/4164418/pexels-photo-4164418.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "author": "Hardi Virani",
+      "date": "2025-12-15",
+      "category": "Startups",
+      "readTime": "7 min read",
+      "featured": false
+    },
+    {
+      "title": "Why Startups Should Consider React Native in 2026",
+      "excerpt": "Comparing mobile development approaches and why cross-platform might be your best bet for reaching users faster.",
+      "image": "https://images.pexels.com/photos/5380664/pexels-photo-5380664.jpeg?auto=compress&cs=tinysrgb&w=800",
+      "author": "Hardi Virani",
+      "date": "2025-11-28",
+      "category": "Mobile Development",
+      "readTime": "6 min read",
+      "featured": false
+    }
+  ],
+  "partners": [
+    { "name": "React", "logo": "/logos/react.svg", "subtitle": "Frontend" },
+    { "name": "Node.js", "logo": "/logos/nodejs.svg", "subtitle": "Backend" },
+    { "name": "TypeScript", "logo": "/logos/typescript.svg", "subtitle": "Language" },
+    { "name": "MongoDB", "logo": "/logos/mongodb.svg", "subtitle": "Database" },
+    { "name": "PostgreSQL", "logo": "/logos/postgresql.svg", "subtitle": "Database" },
+    { "name": "AWS", "logo": "/logos/aws.svg", "subtitle": "Cloud" },
+    { "name": "Azure", "logo": "/logos/azure.svg", "subtitle": "Cloud" },
+    { "name": "OpenAI", "logo": "/logos/openai.svg", "subtitle": "AI/ML" },
+    { "name": "Anthropic", "logo": "/logos/anthropic.svg", "subtitle": "AI/ML" },
+    { "name": "Firebase", "logo": "/logos/firebase.svg", "subtitle": "BaaS" },
+    { "name": "Stripe", "logo": "/logos/stripe.svg", "subtitle": "Payments" },
+    { "name": "Vercel", "logo": "/logos/vercel.svg", "subtitle": "Hosting" },
+    { "name": "Figma", "logo": "/logos/figma.svg", "subtitle": "Design" }
+  ],
+  "clients": [
+    { "name": "TechStart India", "logo": "/logos/clients/techstart.svg", "industry": "Technology" },
+    { "name": "HealthFirst", "logo": "/logos/clients/healthfirst.svg", "industry": "Healthcare" },
+    { "name": "RetailBox", "logo": "/logos/clients/retailbox.svg", "industry": "E-commerce" },
+    { "name": "EduLearn", "logo": "/logos/clients/edulearn.svg", "industry": "EdTech" },
+    { "name": "FinanceFlow", "logo": "/logos/clients/financeflow.svg", "industry": "FinTech" }
+  ],
+  "contact": {
+    "email": "contact@techpotato.in",
+    "phone": "+91 8530594294",
+    "whatsapp": "918530594294",
+    "address": "Remote-First Team, India",
+    "hours": "Mon - Fri: 9AM - 7PM IST",
+    "responseTime": "We typically respond within 4 hours"
+  },
+  "social": {
+    "linkedin": "https://in.linkedin.com/company/techpotato-software",
+    "x": "https://x.com/Techpotato24407",
+    "facebook": "https://www.facebook.com/profile.php?id=61586464482483",
+    "instagram": "https://www.instagram.com/tech_potato.in?igsh=MXJmN3F6ZGhtZGhmcA=="
+  },
+  "faq": [
+    {
+      "question": "How long does a typical project take?",
+      "answer": "Most MVPs take 4-8 weeks. Full applications range from 8-16 weeks depending on complexity. We provide detailed timeline estimates during our free consultation."
+    },
+    {
+      "question": "What's your pricing model?",
+      "answer": "We offer flexible pricing: fixed-price for MVPs, time & materials for ongoing work, and dedicated team arrangements for larger projects. Startup-friendly rates with no hidden costs."
+    },
+    {
+      "question": "Do you provide ongoing support?",
+      "answer": "Yes! We offer maintenance packages including bug fixes, updates, monitoring, and feature additions. We don't disappear after launch."
+    },
+    {
+      "question": "Can you add AI to my existing application?",
+      "answer": "Absolutely! We specialize in AI integration. Whether it's adding chatbots, smart search, content generation, or automation — we can enhance your existing app with AI capabilities."
+    }
+  ],
+  "careers": {
+    "isHiring": true,
+    "headline": "We're Growing!",
+    "description": "Looking for passionate developers to join our journey. React, Node.js, React Native experience preferred.",
+    "email": "careers@techpotato.in",
+    "perks": ["Fully Remote", "Flexible Hours", "Learning Budget", "Startup Culture"],
+    "openings": [
+      { "title": "React Developer", "type": "Full-time / Remote", "experience": "1-3 years" },
+      { "title": "React Native Developer", "type": "Full-time / Remote", "experience": "1-2 years" }
+    ]
+  },
+  "footer": {
+    "description": "A founder-led software studio building AI-powered web & mobile apps. Startup-friendly pricing. Direct founder access on every project.",
+    "quickLinks": [
+      { "name": "Home", "id": "home" },
+      { "name": "About Us", "id": "about" },
+      { "name": "Services", "id": "services" },
+      { "name": "Portfolio", "id": "portfolio" },
+      { "name": "Blog", "id": "blog" },
+      { "name": "Contact", "id": "contact" }
+    ],
+    "legal": [
+      { "name": "Privacy Policy", "href": "/privacy" },
+      { "name": "Terms of Service", "href": "/terms" }
+    ]
+  }
+}
+

@@ -1,39 +1,19 @@
-import { useCallback, useEffect, useState } from 'react';
+import { useCallback, useState } from 'react';
 import { ArrowRight, Play, Sparkles } from 'lucide-react';
 import { motion } from 'framer-motion';
 import Particles from '@tsparticles/react';
 import { loadSlim } from '@tsparticles/slim';
 import type { Engine } from '@tsparticles/engine';
+import { useHero } from '../hooks/useContent';
+import AnimatedCounter from './AnimatedCounter';
 
 const Hero = () => {
   const [particlesLoaded, setParticlesLoaded] = useState(false);
+  const heroContent = useHero();
 
   const particlesInit = useCallback(async (engine: Engine) => {
     await loadSlim(engine);
     setParticlesLoaded(true);
-  }, []);
-
-  const [count, setCount] = useState({ projects: 0, clients: 0, years: 0 });
-
-  useEffect(() => {
-    const targets = { projects: 10, clients: 10, years: 5 };
-    const duration = 2000;
-    const steps = 60;
-    const interval = duration / steps;
-
-    let step = 0;
-    const timer = setInterval(() => {
-      step++;
-      const progress = step / steps;
-      setCount({
-        projects: Math.floor(targets.projects * progress),
-        clients: Math.floor(targets.clients * progress),
-        years: Math.floor(targets.years * progress),
-      });
-      if (step >= steps) clearInterval(timer);
-    }, interval);
-
-    return () => clearInterval(timer);
   }, []);
 
   const containerVariants = {
@@ -147,14 +127,14 @@ const Hero = () => {
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-16"
+        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-40 pb-16"
       >
         <div className="text-center">
           {/* Badge */}
           <motion.div variants={itemVariants} className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass border border-primary/30 mb-8">
             <Sparkles className="w-4 h-4 text-primary" />
             <span className="text-sm font-medium text-text-secondary">
-              Transforming Ideas into Digital Reality
+              {heroContent.badge}
             </span>
           </motion.div>
 
@@ -163,7 +143,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-4xl md:text-6xl lg:text-7xl font-display font-bold text-white mb-6 leading-tight"
           >
-            Build Smarter Software
+            {heroContent.headline}
             <motion.span
               className="block gradient-text mt-2"
               animate={{
@@ -174,7 +154,7 @@ const Hero = () => {
                 backgroundSize: '200% 200%',
               }}
             >
-              With TechPotato
+              {heroContent.headlineGradient}
             </motion.span>
           </motion.h1>
 
@@ -183,8 +163,7 @@ const Hero = () => {
             variants={itemVariants}
             className="text-lg md:text-xl text-text-secondary mb-10 max-w-3xl mx-auto leading-relaxed"
           >
-            We craft innovative software solutions that power businesses forward. 
-            From custom applications to digital transformation — we turn your vision into reality.
+            {heroContent.subtitle}
           </motion.p>
 
           {/* CTA Buttons */}
@@ -198,7 +177,7 @@ const Hero = () => {
               onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               className="btn-electric flex items-center gap-2 text-lg px-8 py-4"
             >
-              <span>Start Your Project</span>
+              <span>{heroContent.cta.primary}</span>
               <ArrowRight size={20} />
             </motion.button>
 
@@ -209,28 +188,29 @@ const Hero = () => {
               className="btn-outline flex items-center gap-2 text-lg px-8 py-4"
             >
               <Play size={20} />
-              <span>View Our Work</span>
+              <span>{heroContent.cta.secondary}</span>
             </motion.button>
           </motion.div>
 
-          {/* Stats */}
+          {/* Stats with Animated Counters */}
           <motion.div
             variants={itemVariants}
             className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto"
           >
-            {[
-              { number: `${count.projects}+`, label: 'Projects Delivered' },
-              { number: `${count.clients}+`, label: 'Happy Clients' },
-              { number: `${count.years}+`, label: 'Years Experience' },
-              { number: '24/7', label: 'Support Available' },
-            ].map((stat, index) => (
+            {heroContent.stats.map((stat, index) => (
               <motion.div
                 key={index}
                 whileHover={{ scale: 1.05, y: -5 }}
                 className="glass rounded-xl p-6 border border-white/10 hover:border-primary/50 transition-colors duration-300"
               >
                 <div className="text-3xl md:text-4xl font-display font-bold text-glow text-primary mb-1">
-                  {stat.number}
+                  <AnimatedCounter
+                    end={stat.value}
+                    prefix={stat.prefix}
+                    suffix={stat.suffix}
+                    displayValue={stat.displayValue}
+                    duration={2000}
+                  />
                 </div>
                 <div className="text-text-secondary text-sm">{stat.label}</div>
               </motion.div>
