@@ -122,19 +122,21 @@ const About = () => {
                     <h4 className="text-sm font-display font-bold text-white mb-4">Meet the Founder</h4>
                     
                     {/* Profile Image */}
-                    <div className="w-20 h-20 mx-auto rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center overflow-hidden mb-3 ring-2 ring-primary/20">
+                    <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 flex items-center justify-center overflow-hidden mb-4 ring-4 ring-primary/30 shadow-lg shadow-primary/20">
                       {founder.image && !founder.image.includes('placeholder') ? (
                         <img 
                           src={founder.image} 
                           alt={founder.name}
-                          className="w-full h-full object-cover"
+                          className="w-full h-full object-cover object-top"
+                          style={{ imageRendering: 'auto' }}
+                          loading="eager"
                           onError={(e) => {
                             const target = e.target as HTMLImageElement;
                             target.style.display = 'none';
                           }}
                         />
                       ) : (
-                        <span className="text-2xl font-display font-bold text-white">
+                        <span className="text-3xl font-display font-bold text-white">
                           {founder.name.split(' ').map(n => n[0]).join('')}
                         </span>
                       )}
